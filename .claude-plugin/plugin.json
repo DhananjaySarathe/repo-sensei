@@ -1,0 +1,7 @@
+{
+  "name": "repo-sensei",
+  "version": "0.2.0",
+  "description": "Learn any codebase while you contribute: onboarding pack, learning path, live nudges, and a daily catch-up with summary, files to read and a quiz.",
+  "license": "MIT",
+  "types": "./types/index.d.ts"
+}

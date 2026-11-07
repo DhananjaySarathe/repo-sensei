@@ -1,0 +1,6 @@
+{
+  "name": "chilledbeer",
+  "owner": { "name": "ChilledBeer", "url": "https://youtube.com/@ChilledBeer" },
+  "description": "Claude Code mods by ChilledBeer",
+  "plugins": [{ "name": "repo-sensei", "source": "./" }]
+}
