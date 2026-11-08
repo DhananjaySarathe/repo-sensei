@@ -33,7 +33,7 @@ Type `/` and you should see `/learn-repo`, `/sensei`, `/learned`, `/sensei-expor
 - **`/learn-repo`** gathers facts (files, manifests, hottest files from git history, contributors, `good first issue`s via `gh`), then has Claude write:
   - `.repo-sensei/ONBOARDING.md`: stack, how the code flows (mermaid diagram), learning path, your first PR, run & test commands, repo glossary
   - `.repo-sensei/concepts.json`: the 8–14 concepts you need, in learning order
-- **`/sensei`** opens a panel: progress bar, next concept, Explain / Learned buttons.
+- **`/sensei`** opens a panel: progress bar, next concept, Explain / Learned buttons. It also opens by itself when you start Claude Code in a repo with a pack, or in a repo it has never seen (with the Build button). Close it any time; `/sensei` brings it back.
 - **Live nudges.** When Claude edits code that uses a concept you haven't learned, a band says so, with **Explain in 2 min**, **I know this** or **Later**.
 - **`/learned <concept>`** ticks a concept off (`/learned undo <concept>` reverts). Progress is saved per repo, across sessions.
 - **`/sensei-export`** writes `flashcards.csv` (Anki import) and `PROGRESS.md`.

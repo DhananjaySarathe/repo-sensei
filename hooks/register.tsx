@@ -384,17 +384,23 @@ export const register: Register = on => {
       await update($, catchup, () => ({ commits: 0, files: 0, touched: 0, sinceLabel: '', lastAt: last, isOffered: false }))
     }
 
+    // The panel opens by itself whenever it has something to show: your learning path in a repo with a pack, or the
+    // "build my onboarding pack" offer in a repo it has never seen. Close it any time; /sensei brings it back.
+    let showPanel = false
     if (info.hasPack) {
       await loadPack($, info.root)
       await refreshStatus($)
+      showPanel = true
     } else if (await $.fs.exists(`${info.root}/.git`)) {
       const seen = ((await $.store.get('seen')) as string[] | undefined) ?? []
       if (!seen.includes(info.root)) {
         await $.store.set('seen', [...seen, info.root].slice(-200))
         await update($, offer, () => true)
         $.ui.toast(`🧭 New codebase: ${info.name}. Run /learn-repo for your onboarding pack.`)
+        showPanel = true
       }
     }
+    if (showPanel) void openPane($)
     return started
   })
 
